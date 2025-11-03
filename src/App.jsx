@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home formData={formData} setFormData={setFormData}/>} />
         <Route path="/questions" element={<QuestionForm formData={formData} score={score} setScore={setScore}/>} />
-        <Route path="/results" element={<ResultsSection />} />
+        <Route path="/results" element={<ResultsSection score={score}/>} />
       </Routes>
     </>
   )

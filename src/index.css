@@ -124,3 +124,68 @@ button:active {
   width: 100%;
   margin-bottom: 1.5rem; /* space between rows */
 }
+
+/* --- Question Section --- */
+.question-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f7e0e4da;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  color: #853f4ada;
+  text-align: left; /* align content to the left */
+}
+
+/* --- Question Text --- */
+.question-container p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Answer Options --- */
+.option {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #c3d0a8;
+  color: #2c2c2c;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.option:hover {
+  background-color: #e8f0d9;
+  transform: translateY(-1px);
+}
+
+.option input[type="radio"] {
+  margin-right: 12px;
+  margin-top: 4px;
+  transform: scale(1.2); /* make radio buttons a bit larger */
+  cursor: pointer;
+}
+
+.option label {
+  font-size: 1rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+/* --- Feedback Text --- */
+.question-container p.feedback {
+  font-weight: bold;
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+/* --- Score Display --- */
+.question-container p.score {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: #6b7d4e;
+}
