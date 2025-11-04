@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import he from "he";
@@ -17,12 +17,18 @@ const QuestionForm = ({formData, score, setScore},) => {
 
   
   useEffect (() => {
+    const categoryId = Number(formData.category);
+    const url = `https://opentdb.com/api.php?amount=15&category=${categoryId}&difficulty=${formData.difficulty}&type=multiple`;
     const getQuestions = async () => {
     try {
-      const tokenResponse = await axios.get('https://opentdb.com/api_token.php?command=request');
-      const token = tokenResponse.data.token;
+      await new Promise(resolve => setTimeout(resolve, 1500));
 
-      const response = await axios.get(`https://opentdb.com/api.php?amount=15&category=${formData.category}&difficulty=${formData.difficulty}&type=multiple&token=${token}`);
+      const response = await axios.get(url);
+      
+      if (response.data.response_code !== 0) {
+        throw new Error("API returned an invalid response");
+      }
+
       setQuestionList(response.data.results);
     } catch (error) {
                 setError(`Failed to fetch question: ${error.message}`);
